@@ -60,7 +60,7 @@ export default function InstallPrompt() {
         className="flex items-center gap-1.5 text-xs font-medium tracking-tight whitespace-nowrap cursor-pointer"
       >
         <Download className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-        <span>Install Aplikasi JESMA Bouquet</span>
+        <span>Install Aplikasi JESMA Bouquet di HP</span>
       </button>
 
       <button
