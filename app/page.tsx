@@ -488,7 +488,8 @@ export default function JesmaBouquetHome() {
             {logoUrl ? <img src={logoUrl} alt="Logo" className="w-6 h-6 rounded-full object-cover" /> : <Flower2 className="w-5 h-5 text-emerald-800" />}
             <span className="font-serif font-bold text-stone-900">JESMA Bouquet</span>
           </div>
-          <p className="text-xs md:text-sm text-stone-500">© 2026 JESMA Bouquet Jayapura Menyediakan Layanan buket bunga, buket uang, dan kustomisasi terpercaya di Kota Jayapura. Hak Cipta Dilindungi.</p>
+          <p className="text-xs md:text-sm text-stone-500">JESMA Bouquet Jayapura Menyediakan Layanan buket bunga, buket uang, dan kustomisasi terpercaya di Kota Jayapura.</p>
+          <p className="text-xs md:text-sm text-stone-500">© 2026 Hak Cipta Dilindungi</p>
           <a
             href={instagramUrl}
             target="_blank"
