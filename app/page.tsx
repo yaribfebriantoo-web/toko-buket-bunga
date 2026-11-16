@@ -562,7 +562,7 @@ export default function JesmaBouquetHome() {
           <div className="bg-white w-full max-w-md h-full flex flex-col p-6 overflow-y-auto shadow-2xl">
             <div className="flex justify-between items-center pb-4 border-b border-stone-200">
               <h3 className="text-lg font-bold flex items-center gap-2">
-                <ShoppingBag className="w-5 h-5 text-emerald-900" /> Keranjang Pesanan
+                <ShoppingBag className="w-5 h-5 text-emerald-900" /> Keranjang Pesananmu
               </h3>
               <button onClick={() => setIsCartOpen(false)} className="p-1 text-stone-500 hover:text-black">
                 <X className="w-5 h-5" />
