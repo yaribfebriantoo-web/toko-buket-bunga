@@ -225,7 +225,7 @@ export default function JesmaBouquetHome() {
               className="relative bg-emerald-900 hover:bg-emerald-950 text-white px-3.5 py-2 rounded-full flex items-center gap-2 text-xs md:text-sm font-medium shadow-sm transition"
             >
               <ShoppingBag className="w-4 h-4" />
-              <span className="hidden sm:inline">Keranjang</span>
+              <span className="hidden sm:inline">Keranjangmu</span>
               {totalItem > 0 && (
                 <span className="bg-amber-400 text-stone-950 text-[10px] md:text-xs font-bold px-1.5 py-0.5 rounded-full">
                   {totalItem}
