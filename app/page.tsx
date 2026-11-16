@@ -304,8 +304,8 @@ export default function JesmaBouquetHome() {
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-emerald-50 text-emerald-800 rounded-xl"><Flower2 className="w-5 h-5" /></div>
             <div>
-              <h3 className="font-semibold text-sm text-stone-900">Bunga Pilihan Berkualitas</h3>
-              <p className="text-xs text-stone-500">Dirangkai rapi dengan material premium</p>
+              <h3 className="font-semibold text-sm text-stone-900">Rangkaian Bunga Bervariasi</h3>
+              <p className="text-xs text-stone-500">Dirangkai rapi dengan material berkualitas</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
