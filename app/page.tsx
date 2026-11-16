@@ -245,7 +245,7 @@ export default function JesmaBouquetHome() {
           </div>
           {/* Judul dengan Efek Flash / Shimmer Emas & Font Serif Premium */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold tracking-tight leading-tight animate-flash-shine">
-            Rangkaian Bunga Eksklusif untuk Setiap Momen Berharga
+            Rangkaian Bunga untuk Setiap Momen Berharga
           </h1>
           <p className="text-stone-600 text-sm md:text-lg leading-relaxed">
             JESMA Bouquet menghadirkan karya seni merangkai bunga pilihan dengan sentuhan estetika untuk Moment Wisuda, Perayaan Cinta, dan Hadiah Istimewa kustomisasi sesuai keinginanmu.
@@ -474,7 +474,7 @@ export default function JesmaBouquetHome() {
                 type="submit"
                 className="w-full bg-emerald-900 hover:bg-emerald-950 text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-sm transition"
               >
-                <MessageCircle className="w-5 h-5" /> Hubungkan Pesanan Custom ke WhatsApp
+                <MessageCircle className="w-5 h-5" /> Pesan Custom ke WhatsApp
               </button>
             </form>
           </div>
