@@ -153,7 +153,7 @@ export default function JesmaBouquetHome() {
 
   return (
     <div id="beranda" className="min-h-screen bg-[#FAF7F2] text-stone-800 font-sans">
-      {/* Tambahan style lokal untuk animasi kilau (flash/shimmer) */}
+      {/* Tambahan style lokal untuk animasi kilau (flash/shimmer) & kontrol batasan zoom */}
       <style jsx global>{`
         @keyframes shine {
           0% { background-position: 200% 0; }
@@ -167,22 +167,27 @@ export default function JesmaBouquetHome() {
           background-clip: text;
           animation: shine 4s linear infinite;
         }
+        /* Mencegah zoom-out berlebih di perangkat mobile namun tetap izinkan zoom-in */
+        html {
+          touch-action: manipulation;
+          text-size-adjust: 100%;
+        }
       `}</style>
 
       {/* Navbar Profesional */}
-      <nav className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-stone-200/80 px-6 py-4 shadow-xs">
+      <nav className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-stone-200/80 px-4 md:px-6 py-4 shadow-xs">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           {/* Logo & Nama Merek */}
-          <Link href="#beranda" className="flex items-center gap-3 group">
+          <Link href="#beranda" className="flex items-center gap-2.5 group">
             {logoUrl ? (
-              <img src={logoUrl} alt="Logo" className="w-10 h-10 rounded-full object-cover shadow-sm group-hover:scale-105 transition" />
+              <img src={logoUrl} alt="Logo" className="w-9 h-9 md:w-10 md:h-10 rounded-full object-cover shadow-sm group-hover:scale-105 transition" />
             ) : (
-              <div className="w-10 h-10 rounded-full bg-emerald-900 text-amber-200 flex items-center justify-center shadow-sm group-hover:scale-105 transition">
+              <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-emerald-900 text-amber-200 flex items-center justify-center shadow-sm group-hover:scale-105 transition">
                 <Flower2 className="w-5 h-5" />
               </div>
             )}
             <div className="flex flex-col">
-              <span className="text-lg font-serif font-bold tracking-wide text-stone-900 leading-none">
+              <span className="text-base md:text-lg font-serif font-bold tracking-wide text-stone-900 leading-none">
                 JESMA <span className="text-emerald-800 font-normal">Bouquet</span>
               </span>
               <span className="text-[10px] uppercase tracking-widest text-stone-400 mt-1">
@@ -192,8 +197,8 @@ export default function JesmaBouquetHome() {
           </Link>
 
           {/* Menu Navigasi */}
-          <div className="flex items-center gap-5 md:gap-7">
-            <a href="#beranda" className="text-sm font-medium text-stone-700 hover:text-emerald-800 transition">Beranda</a>
+          <div className="flex items-center gap-3 md:gap-7">
+            <a href="#beranda" className="hidden sm:inline text-sm font-medium text-stone-700 hover:text-emerald-800 transition">Beranda</a>
             <a href="#katalog" className="hidden sm:inline text-sm font-medium text-stone-700 hover:text-emerald-800 transition">Koleksi</a>
             <a href="#custom-order" className="hidden sm:inline text-sm font-medium text-stone-700 hover:text-emerald-800 transition">Custom Order</a>
 
@@ -209,20 +214,20 @@ export default function JesmaBouquetHome() {
 
             <Link
               href="/admin"
-              className="text-sm font-medium text-stone-500 hover:text-stone-900 flex items-center gap-1.5 border border-stone-200 px-3 py-1.5 rounded-full hover:bg-stone-50 transition"
+              className="text-xs md:text-sm font-medium text-stone-500 hover:text-stone-900 flex items-center gap-1 border border-stone-200 px-2.5 py-1.5 rounded-full hover:bg-stone-50 transition"
             >
               <Lock className="w-3.5 h-3.5" />
-              <span>Admin</span>
+              <span className="hidden xs:inline">Admin</span>
             </Link>
 
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative bg-emerald-900 hover:bg-emerald-950 text-white px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium shadow-sm transition"
+              className="relative bg-emerald-900 hover:bg-emerald-950 text-white px-3.5 py-2 rounded-full flex items-center gap-2 text-xs md:text-sm font-medium shadow-sm transition"
             >
               <ShoppingBag className="w-4 h-4" />
               <span className="hidden sm:inline">Keranjang</span>
               {totalItem > 0 && (
-                <span className="bg-amber-400 text-stone-950 text-xs font-bold px-2 py-0.5 rounded-full">
+                <span className="bg-amber-400 text-stone-950 text-[10px] md:text-xs font-bold px-1.5 py-0.5 rounded-full">
                   {totalItem}
                 </span>
               )}
@@ -232,29 +237,29 @@ export default function JesmaBouquetHome() {
       </nav>
 
       {/* Hero Section & Bingkai Koleksi Jesma (Slideshow Banner Iklan) */}
-      <header className="max-w-6xl mx-auto px-6 py-12 md:py-16 grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
+      <header className="max-w-6xl mx-auto px-6 py-10 md:py-16 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div className="space-y-5">
           <div className="inline-flex items-center gap-2 bg-emerald-900/10 text-emerald-900 text-xs font-semibold px-3.5 py-1.5 rounded-full">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Crafted with Precision and Care</span>
           </div>
           {/* Judul dengan Efek Flash / Shimmer Emas & Font Serif Premium */}
-          <h1 className="text-4xl md:text-5xl font-serif font-extrabold tracking-tight leading-tight animate-flash-shine">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold tracking-tight leading-tight animate-flash-shine">
             Rangkaian Bunga Eksklusif untuk Setiap Momen Berharga
           </h1>
-          <p className="text-stone-600 text-base md:text-lg leading-relaxed">
+          <p className="text-stone-600 text-sm md:text-lg leading-relaxed">
             JESMA Bouquet menghadirkan karya seni merangkai bunga pilihan dengan sentuhan estetika untuk Moment Wisuda, Perayaan Cinta, dan Hadiah Istimewa kustomisasi sesuai keinginanmu.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <a
               href="#katalog"
-              className="bg-emerald-900 hover:bg-emerald-950 text-white font-medium px-7 py-3.5 rounded-full shadow-md transition"
+              className="bg-emerald-900 hover:bg-emerald-950 text-white text-sm md:text-base font-medium px-6 py-3 md:px-7 md:py-3.5 rounded-full shadow-md transition"
             >
               Jelajahi Katalog
             </a>
             <a
               href="#custom-order"
-              className="bg-white hover:bg-stone-50 text-stone-800 border border-stone-300 font-medium px-6 py-3.5 rounded-full flex items-center gap-2 transition"
+              className="bg-white hover:bg-stone-50 text-stone-800 text-sm md:text-base border border-stone-300 font-medium px-5 py-3 md:px-6 md:py-3.5 rounded-full flex items-center gap-2 transition"
             >
               <MessageCircle className="w-4 h-4 text-emerald-800" />
               <span>Custom Order WhatsApp</span>
@@ -264,7 +269,7 @@ export default function JesmaBouquetHome() {
 
         {/* Bingkai Koleksi Jesma - Slideshow Banner Iklan */}
         <div className="relative">
-          <div className="h-80 md:h-[420px] rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-stone-100 relative">
+          <div className="h-72 sm:h-80 md:h-[420px] rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-stone-100 relative">
             {bannerList.length > 0 ? (
               bannerList.map((banner, index) => (
                 <div
@@ -279,7 +284,7 @@ export default function JesmaBouquetHome() {
                     className="w-full h-full object-contain bg-[#FAF7F2]"
                   />
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-4 text-white">
-                    <p className="text-sm font-bold">{banner.judul || "Iklan & Koleksi Spesial"}</p>
+                    <p className="text-xs md:text-sm font-bold">{banner.judul || "Iklan & Koleksi Spesial"}</p>
                   </div>
                 </div>
               ))
@@ -320,20 +325,20 @@ export default function JesmaBouquetHome() {
         </div>
       </section>
 
-      {/* Katalog Section dengan Efek Transisi */}
-      <section id="katalog" className="max-w-6xl mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+      {/* Katalog Section dengan Grid 2 Kolom di HP (2 Baris ke Bawah) */}
+      <section id="katalog" className="max-w-6xl mx-auto px-4 md:px-6 py-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
             <span className="text-xs font-semibold uppercase tracking-wider text-emerald-800">Our Collection</span>
-            <h2 className="text-3xl font-serif font-bold text-stone-900 mt-1">Katalog JESMA Bouquet</h2>
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-stone-900 mt-1">Katalog JESMA Bouquet</h2>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 md:gap-2">
             {kategoriList.map((kat) => (
               <button
                 key={kat}
                 onClick={() => setKategoriAktif(kat)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                className={`px-3.5 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium transition ${
                   kategoriAktif === kat
                     ? "bg-emerald-900 text-white shadow-xs"
                     : "bg-white text-stone-600 border border-stone-200 hover:bg-stone-100"
@@ -352,7 +357,8 @@ export default function JesmaBouquetHome() {
             Belum ada koleksi buket pada kategori ini.
           </div>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          /* grid-cols-2 memastikan tampil 2 kolom di HP / 4 kolom di layar besar */
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 md:gap-6">
             {produkTersaring.map((item) => {
               const isSoldOut = item.status === "Sold Out";
               return (
@@ -361,31 +367,31 @@ export default function JesmaBouquetHome() {
                   className="bg-white rounded-2xl border border-stone-200/80 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col group cursor-pointer"
                   onClick={() => setSelectedProduct(item)}
                 >
-                  <div className="h-60 overflow-hidden bg-stone-100 relative">
+                  <div className="h-44 sm:h-52 md:h-60 overflow-hidden bg-stone-100 relative">
                     <img
                       src={item.gambar_url}
                       alt={item.nama}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <span className="absolute top-3 left-3 bg-white/95 backdrop-blur-xs text-xs font-semibold px-3 py-1 rounded-full text-stone-800 shadow-xs">
+                    <span className="absolute top-2.5 left-2.5 md:top-3 md:left-3 bg-white/95 backdrop-blur-xs text-[10px] md:text-xs font-semibold px-2.5 py-0.5 md:px-3 md:py-1 rounded-full text-stone-800 shadow-xs">
                       {item.kategori}
                     </span>
 
                     {/* Badge Status: Tersedia / Sold Out */}
-                    <span className={`absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-full shadow-xs ${
+                    <span className={`absolute top-2.5 right-2.5 md:top-3 md:right-3 text-[10px] md:text-xs font-bold px-2 md:px-2.5 py-0.5 md:py-1 rounded-full shadow-xs ${
                       isSoldOut ? "bg-red-600 text-white" : "bg-emerald-800 text-white"
                     }`}>
                       {isSoldOut ? "Sold Out" : "Tersedia"}
                     </span>
                   </div>
 
-                  <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div className="p-3.5 md:p-5 flex-1 flex flex-col justify-between">
                     <div>
-                      <h3 className="font-bold text-lg text-stone-900 mb-1 group-hover:text-emerald-800 transition">{item.nama}</h3>
-                      <p className="text-stone-500 text-sm line-clamp-2 mb-4">{item.deskripsi}</p>
+                      <h3 className="font-bold text-sm md:text-lg text-stone-900 mb-1 group-hover:text-emerald-800 transition line-clamp-1">{item.nama}</h3>
+                      <p className="text-stone-500 text-xs md:text-sm line-clamp-2 mb-3 md:mb-4">{item.deskripsi}</p>
                     </div>
-                    <div className="pt-3 border-t border-stone-100 flex items-center justify-between">
-                      <span className="font-bold text-emerald-900">
+                    <div className="pt-2.5 md:pt-3 border-t border-stone-100 flex items-center justify-between gap-1">
+                      <span className="font-bold text-xs md:text-base text-emerald-900">
                         Rp {item.harga.toLocaleString("id-ID")}
                       </span>
                       <button
@@ -394,13 +400,13 @@ export default function JesmaBouquetHome() {
                           addToCart(item);
                         }}
                         disabled={isSoldOut}
-                        className={`px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 text-xs font-medium ${
+                        className={`px-2.5 py-1.5 md:px-3.5 md:py-2 rounded-xl transition flex items-center gap-1 text-[11px] md:text-xs font-medium ${
                           isSoldOut 
                             ? "bg-stone-300 text-stone-500 cursor-not-allowed" 
                             : "bg-stone-900 hover:bg-emerald-900 text-white"
                         }`}
                       >
-                        <Plus className="w-4 h-4" /> {isSoldOut ? "Habis" : "Pesan"}
+                        <Plus className="w-3.5 h-3.5" /> {isSoldOut ? "Habis" : "Pesan"}
                       </button>
                     </div>
                   </div>
@@ -412,18 +418,18 @@ export default function JesmaBouquetHome() {
       </section>
 
       {/* Menu Custom Order via WhatsApp (Setelah Galeri Instagram) */}
-      <section id="custom-order" className="max-w-4xl mx-auto px-6 py-12">
-        <div className="bg-white p-8 md:p-10 rounded-3xl border border-stone-200 shadow-md relative overflow-hidden">
+      <section id="custom-order" className="max-w-4xl mx-auto px-4 md:px-6 py-10">
+        <div className="bg-white p-6 md:p-10 rounded-3xl border border-stone-200 shadow-md relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-0 opacity-50"></div>
           <div className="relative z-10 space-y-6">
             <div className="text-center max-w-xl mx-auto space-y-2">
               <span className="text-xs font-semibold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full">
                 Custom Arrangement
               </span>
-              <h2 className="text-2xl md:text-3xl font-serif font-bold text-stone-900">
+              <h2 className="text-xl md:text-3xl font-serif font-bold text-stone-900">
                 Buat Pesanan Custom Sesuai Keinginan Anda
               </h2>
-              <p className="text-sm text-stone-600">
+              <p className="text-xs md:text-sm text-stone-600">
                 Punya konsep warna, jenis bunga, atau budget khusus? Isi form di bawah ini dan terhubung langsung dengan admin kami via WhatsApp!
               </p>
             </div>
@@ -476,18 +482,18 @@ export default function JesmaBouquetHome() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-stone-200 mt-16 py-10 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <footer className="bg-white border-t border-stone-200 mt-16 py-8 md:py-10 px-6">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
           <div className="flex items-center gap-2">
             {logoUrl ? <img src={logoUrl} alt="Logo" className="w-6 h-6 rounded-full object-cover" /> : <Flower2 className="w-5 h-5 text-emerald-800" />}
             <span className="font-serif font-bold text-stone-900">JESMA Bouquet</span>
           </div>
-          <p className="text-sm text-stone-500">© 2026 JESMA Bouquet. All rights reserved.</p>
+          <p className="text-xs md:text-sm text-stone-500">© 2026 JESMA Bouquet. All rights reserved.</p>
           <a
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-stone-600 hover:text-pink-600 flex items-center gap-1.5"
+            className="text-xs md:text-sm text-stone-600 hover:text-pink-600 flex items-center gap-1.5"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> Instagram Kami
           </a>
