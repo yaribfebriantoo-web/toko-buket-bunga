@@ -245,10 +245,10 @@ export default function JesmaBouquetHome() {
           </div>
           {/* Judul dengan Efek Flash / Shimmer Emas & Font Serif Premium */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold tracking-tight leading-tight animate-flash-shine">
-            Rangkaian Bunga untuk Setiap Momen Berharga
+            Rangkaian Bunga untuk Setiap Momen Berhargamu
           </h1>
           <p className="text-stone-600 text-sm md:text-lg leading-relaxed">
-            JESMA Bouquet menghadirkan karya seni merangkai bunga pilihan dengan sentuhan estetika untuk Moment Wisuda, Perayaan Cinta, dan Hadiah Istimewa kustomisasi sesuai keinginanmu.
+            JESMA Bouquet menghadirkan karya seni merangkai bunga Artifisial dengan sentuhan estetika untuk Moment Wisuda, Perayaan Cinta, dan Hadiah Istimewa kustomisasi sesuai keinginanmu.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <a
@@ -488,7 +488,7 @@ export default function JesmaBouquetHome() {
             {logoUrl ? <img src={logoUrl} alt="Logo" className="w-6 h-6 rounded-full object-cover" /> : <Flower2 className="w-5 h-5 text-emerald-800" />}
             <span className="font-serif font-bold text-stone-900">JESMA Bouquet</span>
           </div>
-          <p className="text-xs md:text-sm text-stone-500">© 2026 JESMA Bouquet. All rights reserved.</p>
+          <p className="text-xs md:text-sm text-stone-500">© 2026 JESMA Bouquet Jayapura Menyediakan Layanan buket bunga, buket uang, dan kustomisasi terpercaya di Kota Jayapura. Hak Cipta Dilindungi.</p>
           <a
             href={instagramUrl}
             target="_blank"
