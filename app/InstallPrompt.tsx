@@ -63,7 +63,7 @@ export default function InstallPrompt() {
   if (!showBanner || isDismissed) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 z-50 flex justify-center animate-fade-in">
+    <div className="fixed bottom-5 right-5 z-50 flex animate-fade-in">
       <div className="bg-emerald-950 text-white px-4 py-3.5 rounded-2xl shadow-2xl border border-emerald-800 max-w-md w-full flex flex-col gap-2">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
